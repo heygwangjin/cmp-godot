@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-class_name Player
-
 const GRAVITY = 50.0
 const WALK_SPEED = 200
 
@@ -18,6 +16,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -WALK_SPEED
 	elif Input.is_action_pressed("ui_right"):
+		$Sprite.play("walk")
 		velocity.x =  WALK_SPEED
 	else:
 		velocity.x = 0
