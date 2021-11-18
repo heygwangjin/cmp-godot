@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=4]
 [ext_resource path="res://Font/KOTRA HOPE_TTF.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/King.tscn" type="PackedScene" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -24,24 +25,20 @@ Scenes to need in Hell of Violence
 - Fist"
 }
 
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 98, 49 )
+[node name="Jingwang" parent="." instance=ExtResource( 7 )]
+position = Vector2( 3836, 248 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-drag_margin_h_enabled = true
-drag_margin_v_enabled = true
-drag_margin_top = 0.4
-drag_margin_bottom = 0.4
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 311, 363 )
 
 [node name="Tiles" type="Node" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Tiles"]
-position = Vector2( 1, -2 )
+position = Vector2( -3, -2 )
 tile_set = ExtResource( 2 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 131072, 4, 0, 131085, 5, 0, 131092, 5, 0, 131093, 5, 0, 131094, 5, 0, 131095, 5, 0, 196621, 5, 0, 196622, 4, 0, 262154, 5, 0, 262155, 5, 0, 262156, 5, 0, 262157, 5, 0, 262158, 4, 0, 262160, 5, 0, 262161, 5, 0, 262162, 5, 0, 262163, 5, 0, 327691, 4, 0, 327692, 4, 0, 327694, 4, 0, 327695, 4, 0, 393216, 5, 0, 393217, 5, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393225, 5, 0, 393226, 5, 0, 393227, 5, 0, 393228, 5, 0, 393229, 5, 0, 393230, 5, 0, 393231, 5, 0, 458752, 5, 0, 458753, 5, 0, 458754, 5, 0, 458755, 5, 0, 458756, 5, 0, 458757, 5, 0, 458758, 5, 0, 458759, 5, 0, 458760, 5, 0, 458761, 5, 0, 458762, 5, 0, 458763, 5, 0, 458764, 5, 0, 458765, 5, 0, 458766, 5, 0, 458767, 5, 0, 458768, 5, 0, 458769, 5, 0, 458770, 5, 0, 458771, 5, 0, 458772, 5, 0, 458773, 5, 0, 458774, 5, 0, 458775, 5, 0, 458776, 5, 0, 458777, 5, 0, 458778, 5, 0, 458779, 5, 0, 458780, 5, 0, 524304, 5, 0, 524305, 5, 0, 524306, 5, 0, 524307, 5, 0, 524308, 5, 0, 524309, 5, 0, 524310, 5, 0, 524311, 5, 0, 524312, 5, 0, 524313, 5, 0, 524314, 5, 0, 524315, 5, 0, 524316, 5, 0, 524317, 5, 0, 524318, 5, 0, 524319, 5, 0, 524320, 5, 0, 524321, 5, 0, 524322, 5, 0, 524323, 5, 0, 524324, 5, 0, 589853, 5, 0, 589854, 5, 0, 589855, 5, 0, 589856, 5, 0, 589857, 5, 0, 589858, 5, 0, 589859, 5, 0, 589860, 5, 0 )
+tile_data = PoolIntArray( 131072, 4, 0, 131119, 5, 0, 131120, 5, 0, 131121, 5, 0, 131122, 5, 0, 196624, 5, 0, 196625, 5, 0, 196626, 5, 0, 196627, 5, 0, 262176, 5, 0, 262177, 5, 0, 262178, 5, 0, 262179, 5, 0, 262186, 5, 0, 262187, 5, 0, 262188, 5, 0, 262189, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 393216, 5, 0, 393217, 5, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393243, 5, 0, 393244, 5, 0, 393245, 5, 0, 393246, 5, 0, 393253, 5, 0, 393254, 5, 0, 393255, 5, 0, 393256, 5, 0, 393268, 5, 0, 393269, 5, 0, 393270, 5, 0, 393271, 5, 0, 393274, 5, 0, 393275, 5, 0, 393276, 5, 0, 393277, 5, 0, 524299, 5, 0, 524300, 5, 0, 524301, 5, 0, 524302, 5, 0, 524303, 5, 0, 524304, 5, 0, 524305, 5, 0, 524306, 5, 0, 524307, 5, 0, 524308, 5, 0, 524309, 5, 0, 524310, 5, 0, 524311, 5, 0, 524312, 5, 0, 524313, 5, 0, 524314, 5, 0, 524315, 5, 0, 524316, 5, 0, 524317, 5, 0, 524318, 5, 0, 524319, 5, 0, 524320, 5, 0, 524321, 5, 0, 524322, 5, 0, 524323, 5, 0, 524324, 5, 0, 524325, 5, 0, 524326, 5, 0, 524327, 5, 0, 524328, 5, 0, 524329, 5, 0, 524330, 5, 0, 524331, 5, 0, 524332, 5, 0, 524333, 5, 0, 524334, 5, 0, 524335, 5, 0, 524336, 5, 0, 524337, 5, 0, 524338, 5, 0, 524339, 5, 0, 524340, 5, 0, 524341, 5, 0, 524342, 5, 0, 524343, 5, 0, 524344, 5, 0, 524345, 5, 0, 524346, 5, 0, 524347, 5, 0, 524348, 5, 0, 524349, 5, 0 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 4 )
@@ -59,17 +56,37 @@ __meta__ = {
 }
 
 [node name="soul" parent="." instance=ExtResource( 3 )]
-position = Vector2( 472, 326 )
+position = Vector2( 2569, 123 )
 
 [node name="soul2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 610, 323 )
+position = Vector2( 955, 124 )
 
 [node name="soul3" parent="." instance=ExtResource( 3 )]
-position = Vector2( 342, 326 )
+position = Vector2( 2001, 156 )
+
+[node name="soul4" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2345, 305 )
+
+[node name="soul5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1768, 277 )
+
+[node name="soul6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 2852, 74 )
+
+[node name="soul8" parent="." instance=ExtResource( 3 )]
+position = Vector2( 636, 311 )
+
+[node name="soul9" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1415, 152 )
 
 [node name="enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 1206, 174 )
+position = Vector2( 2454, 278 )
 
 [connection signal="soul_collected" from="soul" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="soul2" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="soul3" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="soul4" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="soul5" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="soul6" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="soul8" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="soul9" to="HUD" method="_on_soul_soul_collected"]
