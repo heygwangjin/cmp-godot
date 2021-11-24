@@ -4,6 +4,8 @@ extends KinematicBody2D
 
 class_name Player
 
+signal lose_health 
+
 const WALK_SPEED = 300
 const JUMP_SPEED = 600
 const GRAVITY = 20
@@ -11,7 +13,8 @@ var velocity = Vector2()
 var health = 3
 
 func is_dead() -> bool:
-	if (health == 0):
+	if (health <= 0):
+		get_tree().reload_current_scene()
 		return true
 	else:
 		return false
@@ -40,5 +43,3 @@ func _physics_process(delta):
 	velocity.x = lerp(velocity.x,0,0.4) # smooth stop
 	velocity = move_and_slide(velocity, Vector2.UP)
 
-func _on_Jingwang_mouse_entered():
-   get_tree().change_scene("res://Hells/HellOfInjustice.tscn")

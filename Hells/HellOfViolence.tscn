@@ -1,16 +1,21 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
 [ext_resource path="res://Scenes/soul.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=4]
 [ext_resource path="res://Font/KOTRA HOPE_TTF.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Scenes/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/King.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/Fist.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Fire.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
 font_data = ExtResource( 5 )
 
 [node name="HellOfViolence" type="Node2D"]
@@ -20,15 +25,6 @@ position = Vector2( 3836, 248 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 311, 363 )
-
-[node name="Tiles" type="Node2D" parent="."]
-
-[node name="TileMap" type="TileMap" parent="Tiles"]
-position = Vector2( -3, -2 )
-tile_set = ExtResource( 2 )
-show_collision = true
-format = 1
-tile_data = PoolIntArray( 131072, 4, 0, 131119, 5, 0, 131120, 5, 0, 131121, 5, 0, 131122, 5, 0, 196624, 5, 0, 196625, 5, 0, 196626, 5, 0, 196627, 5, 0, 262176, 5, 0, 262177, 5, 0, 262178, 5, 0, 262179, 5, 0, 262186, 5, 0, 262187, 5, 0, 262188, 5, 0, 262189, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 393216, 5, 0, 393217, 5, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393243, 5, 0, 393244, 5, 0, 393245, 5, 0, 393246, 5, 0, 393253, 5, 0, 393254, 5, 0, 393255, 5, 0, 393256, 5, 0, 393268, 5, 0, 393269, 5, 0, 393270, 5, 0, 393271, 5, 0, 393274, 5, 0, 393275, 5, 0, 393276, 5, 0, 393277, 5, 0, 524288, 6, 0, 524289, 6, 0, 524290, 6, 0, 524291, 6, 0, 524292, 6, 0, 524293, 6, 0, 524294, 6, 0, 524295, 6, 0, 524296, 6, 0, 524297, 6, 0, 524298, 6, 0, 524299, 6, 0, 524300, 6, 0, 524301, 6, 0, 524302, 6, 0, 524303, 6, 0, 524304, 6, 0, 524305, 6, 0, 524306, 6, 0, 524307, 6, 0, 524308, 6, 0, 524309, 6, 0, 524310, 6, 0, 524311, 6, 0, 524312, 6, 0, 524313, 6, 0, 524314, 6, 0, 524315, 6, 0, 524316, 6, 0, 524317, 6, 0, 524318, 6, 0, 524319, 6, 0, 524320, 6, 0, 524321, 6, 0, 524322, 6, 0, 524323, 6, 0, 524324, 6, 0, 524325, 6, 0, 524326, 6, 0, 524327, 6, 0, 524328, 6, 0, 524329, 6, 0, 524330, 6, 0, 524331, 6, 0, 524332, 6, 0, 524333, 6, 0, 524334, 6, 0, 524335, 6, 0, 524336, 6, 0, 524337, 6, 0, 524338, 6, 0, 524339, 6, 0, 524340, 6, 0, 524341, 6, 0, 524342, 6, 0, 524343, 6, 0, 524344, 6, 0, 524345, 6, 0, 524346, 6, 0, 524347, 6, 0, 524348, 6, 0, 524349, 6, 0, 917541, 4, 0, 917542, 4, 0, 917543, 4, 0 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 4 )
@@ -45,64 +41,75 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="enemy" parent="." instance=ExtResource( 6 )]
-position = Vector2( 2454, 278 )
+[node name="Live" type="Label" parent="HUD"]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Souls" type="Node2D" parent="."]
 
 [node name="soul" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 734, 195 )
+position = Vector2( 516, 312 )
 
 [node name="soul2" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1157, 107 )
+position = Vector2( 789, 239 )
 
 [node name="soul3" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1465, 143 )
+position = Vector2( 1083, 93 )
 
 [node name="soul4" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 2164, 168 )
+position = Vector2( 1432, 220 )
 
 [node name="soul5" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 2539, 330 )
+position = Vector2( 1917, 302 )
 
 [node name="soul6" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 2816, 170 )
+position = Vector2( 2572, 143 )
 
-[node name="soul7" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 3233, 283 )
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Tiles"]
+position = Vector2( -3, -2 )
+tile_set = ExtResource( 2 )
+show_collision = true
+format = 1
+tile_data = PoolIntArray( 131072, 4, 0, 131119, 5, 0, 131120, 5, 0, 131121, 5, 0, 131122, 5, 0, 196624, 5, 0, 196625, 5, 0, 196626, 5, 0, 196627, 5, 0, 262176, 5, 0, 262177, 5, 0, 262178, 5, 0, 262179, 5, 0, 262186, 5, 0, 262187, 5, 0, 262188, 5, 0, 262189, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 393216, 5, 0, 393217, 5, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393243, 5, 0, 393244, 5, 0, 393245, 5, 0, 393246, 5, 0, 393253, 5, 0, 393254, 5, 0, 393255, 5, 0, 393256, 5, 0, 393268, 5, 0, 393269, 5, 0, 393270, 5, 0, 393271, 5, 0, 393274, 5, 0, 393275, 5, 0, 393276, 5, 0, 393277, 5, 0, 917541, 4, 0, 917542, 4, 0, 917543, 4, 0 )
+
+[node name="Fires" type="Node2D" parent="."]
+
+[node name="Fire_2" parent="Fires" instance=ExtResource( 10 )]
+position = Vector2( 485, 500 )
+
+[node name="Fire_3" parent="Fires" instance=ExtResource( 10 )]
+position = Vector2( 1988, 500 )
+
+[node name="Fire_4" parent="Fires" instance=ExtResource( 10 )]
+position = Vector2( 3515, 500 )
 
 [node name="Fists" type="Node2D" parent="."]
-position = Vector2( -2, 6 )
 
 [node name="Fist" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 748, 43 )
-
-[node name="Fist9" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 293, -48 )
-
-[node name="Fist8" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 306, 36 )
-
-[node name="Fist7" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 302, 142 )
-
-[node name="Fist6" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 906, 42 )
+position = Vector2( 300, 14 )
 
 [node name="Fist2" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 1166, -84 )
+position = Vector2( 288, -190 )
 
 [node name="Fist3" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 1471, -81 )
-rotation = 0.030632
+position = Vector2( 294, -88 )
 
-[node name="Fist4" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 2165, 37 )
-rotation = 0.030632
+[node name="Enemy" type="Node2D" parent="."]
 
-[node name="Fist5" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 2820, 44 )
-rotation = 0.030632
+[node name="Enemy" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 220, 195 )
+
+[node name="Enemy2" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 1377, 242 )
+
+[node name="Enemy3" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 3056, 313 )
 
 [connection signal="body_entered" from="Jingwang" to="Jingwang" method="_on_Jingwang_body_entered"]
 [connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]
@@ -111,4 +118,7 @@ rotation = 0.030632
 [connection signal="soul_collected" from="Souls/soul4" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul5" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul6" to="HUD" method="_on_soul_soul_collected"]
-[connection signal="soul_collected" from="Souls/soul7" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="lose_health" from="Fires/Fire_2" to="HUD" method="_on_Fire_2_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy" to="HUD" method="_on_Enemy_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy2" to="HUD" method="_on_Enemy_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy3" to="HUD" method="_on_Enemy_lose_health"]
