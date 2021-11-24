@@ -21,6 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="cmp-godot"
+run/main_scene="res://Hells/HellOfViolence.tscn"
 config/icon="res://icon.png"
 
 [input]

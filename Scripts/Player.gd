@@ -39,3 +39,6 @@ func _physics_process(delta):
 	
 	velocity.x = lerp(velocity.x,0,0.4) # smooth stop
 	velocity = move_and_slide(velocity, Vector2.UP)
+
+func _on_Jingwang_mouse_entered():
+   get_tree().change_scene("res://Hells/HellOfInjustice.tscn")
