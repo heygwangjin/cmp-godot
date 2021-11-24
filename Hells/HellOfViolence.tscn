@@ -13,18 +13,7 @@
 size = 50
 font_data = ExtResource( 5 )
 
-[node name="HellOfViolence" type="Node"]
-__meta__ = {
-"_editor_description_": "It is the first level of the game.
-
-Scenes to need in Hell of Violence
-- Player
-- Tiles
-- Soul
-- King
-- Bat
-- Fist"
-}
+[node name="HellOfViolence" type="Node2D"]
 
 [node name="Jingwang" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3836, 248 )
@@ -62,22 +51,31 @@ position = Vector2( 2454, 278 )
 [node name="Souls" type="Node2D" parent="."]
 
 [node name="soul" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 516, 312 )
+position = Vector2( 565, 260 )
 
 [node name="soul2" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 789, 239 )
+position = Vector2( 916, 139 )
 
 [node name="soul3" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1083, 93 )
+position = Vector2( 1127, 69 )
 
 [node name="soul4" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1432, 220 )
+position = Vector2( 1401, 132 )
 
 [node name="soul5" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1917, 302 )
+position = Vector2( 1700, 240 )
 
 [node name="soul6" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 2572, 143 )
+position = Vector2( 2098, 139 )
+
+[node name="soul7" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 2475, 101 )
+
+[node name="soul8" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 2980, 238 )
+
+[node name="soul9" parent="Souls" instance=ExtResource( 3 )]
+position = Vector2( 3216, 302 )
 
 [node name="Fists" type="Node2D" parent="."]
 position = Vector2( -2, 6 )
@@ -118,3 +116,6 @@ rotation = 0.030632
 [connection signal="soul_collected" from="Souls/soul4" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul5" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul6" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul7" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul8" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul9" to="HUD" method="_on_soul_soul_collected"]
