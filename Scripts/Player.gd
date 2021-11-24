@@ -11,7 +11,8 @@ var velocity = Vector2()
 var health = 3
 
 func is_dead() -> bool:
-	if (health == 0):
+	if (health <= 0):
+		get_tree().reload_current_scene()
 		return true
 	else:
 		return false
