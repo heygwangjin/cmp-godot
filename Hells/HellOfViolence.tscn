@@ -104,7 +104,7 @@ rotation = 0.030632
 position = Vector2( 2820, 44 )
 rotation = 0.030632
 
-[connection signal="mouse_entered" from="Jingwang" to="Player" method="_on_Jingwang_mouse_entered"]
+[connection signal="body_entered" from="Jingwang" to="Jingwang" method="_on_Jingwang_body_entered"]
 [connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul2" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul3" to="HUD" method="_on_soul_soul_collected"]
