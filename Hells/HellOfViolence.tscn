@@ -51,25 +51,25 @@ position = Vector2( 2454, 278 )
 [node name="Souls" type="Node2D" parent="."]
 
 [node name="soul" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 719, 270 )
+position = Vector2( 734, 195 )
 
 [node name="soul2" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1159, 82 )
+position = Vector2( 1157, 107 )
 
 [node name="soul3" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1470, 133 )
+position = Vector2( 1465, 143 )
 
 [node name="soul4" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 2152, 179 )
+position = Vector2( 2164, 168 )
 
 [node name="soul5" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 2557, 280 )
+position = Vector2( 2539, 330 )
 
 [node name="soul6" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 2813, 172 )
+position = Vector2( 2816, 170 )
 
 [node name="soul7" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 3247, 314 )
+position = Vector2( 3233, 283 )
 
 [node name="Fists" type="Node2D" parent="."]
 position = Vector2( -2, 6 )
@@ -104,10 +104,10 @@ rotation = 0.030632
 position = Vector2( 2820, 44 )
 rotation = 0.030632
 
-[connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected2"]
-[connection signal="soul_collected" from="Souls/soul2" to="HUD" method="_on_soul_soul_collected2"]
-[connection signal="soul_collected" from="Souls/soul3" to="HUD" method="_on_soul_soul_collected2"]
-[connection signal="soul_collected" from="Souls/soul4" to="HUD" method="_on_soul_soul_collected2"]
-[connection signal="soul_collected" from="Souls/soul5" to="HUD" method="_on_soul_soul_collected2"]
-[connection signal="soul_collected" from="Souls/soul6" to="HUD" method="_on_soul_soul_collected2"]
-[connection signal="soul_collected" from="Souls/soul7" to="HUD" method="_on_soul_soul_collected2"]
+[connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul2" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul3" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul4" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul5" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul6" to="HUD" method="_on_soul_soul_collected"]
+[connection signal="soul_collected" from="Souls/soul7" to="HUD" method="_on_soul_soul_collected"]
