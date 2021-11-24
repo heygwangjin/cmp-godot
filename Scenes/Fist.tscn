@@ -4,7 +4,7 @@
 [ext_resource path="res://Scripts/Fist.gd" type="Script" id=2]
 
 [node name="Fist" type="Area2D"]
-gravity = 10.0
+gravity = 8.0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

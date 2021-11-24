@@ -7,7 +7,7 @@
 [ext_resource path="res://Font/KOTRA HOPE_TTF.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/King.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Fist.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/Fists.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Fire.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
@@ -90,15 +90,7 @@ position = Vector2( 1988, 500 )
 position = Vector2( 3515, 500 )
 
 [node name="Fists" type="Node2D" parent="."]
-
-[node name="Fist" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 300, 14 )
-
-[node name="Fist2" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 288, -190 )
-
-[node name="Fist3" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 294, -88 )
+script = ExtResource( 9 )
 
 [node name="Enemy" type="Node2D" parent="."]
 
@@ -119,6 +111,7 @@ position = Vector2( 3056, 313 )
 [connection signal="soul_collected" from="Souls/soul5" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul6" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="lose_health" from="Fires/Fire_2" to="HUD" method="_on_Fire_2_lose_health"]
+[connection signal="lose_health" from="Fists" to="HUD" method="_on_Fists_lose_health"]
 [connection signal="lose_health" from="Enemy/Enemy" to="HUD" method="_on_Enemy_lose_health"]
 [connection signal="lose_health" from="Enemy/Enemy2" to="HUD" method="_on_Enemy_lose_health"]
 [connection signal="lose_health" from="Enemy/Enemy3" to="HUD" method="_on_Enemy_lose_health"]

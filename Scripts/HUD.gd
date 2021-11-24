@@ -11,10 +11,11 @@ func _on_soul_soul_collected():
 	souls = souls + 100
 	_ready()
 	
-
 func _on_Enemy_lose_health():
 	_ready()
 
-
 func _on_Fire_2_lose_health():
+	_ready()
+
+func _on_Fists_lose_health():
 	_ready()
