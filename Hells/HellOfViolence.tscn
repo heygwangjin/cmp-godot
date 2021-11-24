@@ -79,8 +79,38 @@ position = Vector2( 1917, 302 )
 [node name="soul6" parent="Souls" instance=ExtResource( 3 )]
 position = Vector2( 2572, 143 )
 
-[node name="Fist" parent="." instance=ExtResource( 8 )]
-position = Vector2( 140, 18 )
+[node name="Fists" type="Node2D" parent="."]
+position = Vector2( -2, 6 )
+
+[node name="Fist" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 748, 43 )
+
+[node name="Fist9" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 293, -48 )
+
+[node name="Fist8" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 306, 36 )
+
+[node name="Fist7" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 302, 142 )
+
+[node name="Fist6" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 906, 42 )
+
+[node name="Fist2" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 1166, -84 )
+
+[node name="Fist3" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 1471, -81 )
+rotation = 0.030632
+
+[node name="Fist4" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 2165, 37 )
+rotation = 0.030632
+
+[node name="Fist5" parent="Fists" instance=ExtResource( 8 )]
+position = Vector2( 2820, 44 )
+rotation = 0.030632
 
 [connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul2" to="HUD" method="_on_soul_soul_collected"]
