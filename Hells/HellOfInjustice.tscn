@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
 [ext_resource path="res://Scenes/soul.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/HUD.gd" type="Script" id=4]
 [ext_resource path="res://Font/KOTRA HOPE_TTF.ttf" type="DynamicFontData" id=5]
-[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Fist.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Fire.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/icicle.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Ice.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/King_2.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -16,6 +16,54 @@ font_data = ExtResource( 5 )
 [sub_resource type="DynamicFont" id=2]
 size = 40
 font_data = ExtResource( 5 )
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends Node2D
+
+signal lose_health
+
+export var speed : int = 100
+export var moveDist : int = 150
+ 
+onready var startX : float = position.x
+onready var targetX : float = position.x + moveDist
+
+func _physics_process (delta):
+	
+	# move to the \"targetX\" position
+	position.x = move_to(position.x, targetX, speed * delta)
+ 
+	# if we're at our target, move in the other direction
+	if position.x == targetX:
+		if targetX == startX:
+			targetX = position.x + moveDist
+		else:
+			targetX = startX
+
+
+# moves \"current\" towards \"to\" in an increment of \"step\"
+func move_to (current, to, step):
+ 
+	var new = current
+ 
+	# are we moving positive?
+	if new < to:
+		new += step
+ 
+		if new > to:
+			new = to
+	# are we moving negative?
+	else:
+		new -= step
+ 
+		if new < to:
+			new = to
+ 
+	return new
+
+
+
+"
 
 [node name="HellOfInjustice" type="Node2D"]
 
@@ -74,41 +122,28 @@ show_collision = true
 format = 1
 tile_data = PoolIntArray( 131072, 4, 0, 131119, 5, 0, 131120, 5, 0, 131121, 5, 0, 131122, 5, 0, 196624, 5, 0, 196625, 5, 0, 196626, 5, 0, 196627, 5, 0, 262176, 5, 0, 262177, 5, 0, 262178, 5, 0, 262179, 5, 0, 262186, 5, 0, 262187, 5, 0, 262188, 5, 0, 262189, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 393216, 5, 0, 393217, 5, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393243, 5, 0, 393244, 5, 0, 393245, 5, 0, 393246, 5, 0, 393253, 5, 0, 393254, 5, 0, 393255, 5, 0, 393256, 5, 0, 393268, 5, 0, 393269, 5, 0, 393270, 5, 0, 393271, 5, 0, 393274, 5, 0, 393275, 5, 0, 393276, 5, 0, 393277, 5, 0, 917541, 4, 0, 917542, 4, 0, 917543, 4, 0 )
 
-[node name="Fires" type="Node2D" parent="."]
-
-[node name="Fire_2" parent="Fires" instance=ExtResource( 10 )]
-position = Vector2( 485, 500 )
-
-[node name="Fire_3" parent="Fires" instance=ExtResource( 10 )]
-position = Vector2( 1988, 500 )
-
-[node name="Fire_4" parent="Fires" instance=ExtResource( 10 )]
-position = Vector2( 3515, 500 )
-
-[node name="Fists" type="Node2D" parent="."]
-
-[node name="Fist" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 300, 14 )
-
-[node name="Fist2" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 288, -190 )
-
-[node name="Fist3" parent="Fists" instance=ExtResource( 8 )]
-position = Vector2( 294, -88 )
-
 [node name="Enemy" type="Node2D" parent="."]
+script = SubResource( 3 )
 
-[node name="Enemy" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 220, 195 )
+[node name="icicle2" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 2054, 222 )
 
-[node name="Enemy4" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 436, 191 )
+[node name="icicle3" parent="Enemy" instance=ExtResource( 6 )]
+position = Vector2( 1766, 356 )
 
-[node name="Enemy2" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 1377, 242 )
+[node name="ices" type="Node2D" parent="."]
 
-[node name="Enemy3" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 3056, 313 )
+[node name="ice_8" parent="ices" instance=ExtResource( 7 )]
+position = Vector2( 150, 539 )
+
+[node name="ice_11" parent="ices" instance=ExtResource( 7 )]
+position = Vector2( 2722, 537 )
+
+[node name="ice_12" parent="ices" instance=ExtResource( 7 )]
+position = Vector2( 1694, 539 )
+
+[node name="King_2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3832, 224 )
 
 [connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul2" to="HUD" method="_on_soul_soul_collected"]
@@ -116,8 +151,9 @@ position = Vector2( 3056, 313 )
 [connection signal="soul_collected" from="Souls/soul4" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul5" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul6" to="HUD" method="_on_soul_soul_collected"]
-[connection signal="lose_health" from="Fires/Fire_2" to="HUD" method="_on_Fire_2_lose_health"]
-[connection signal="lose_health" from="Enemy/Enemy" to="HUD" method="_on_Enemy_lose_health"]
-[connection signal="lose_health" from="Enemy/Enemy4" to="HUD" method="_on_Enemy_lose_health"]
-[connection signal="lose_health" from="Enemy/Enemy2" to="HUD" method="_on_Enemy_lose_health"]
-[connection signal="lose_health" from="Enemy/Enemy3" to="HUD" method="_on_Enemy_lose_health"]
+[connection signal="body_entered" from="Enemy/icicle2" to="Enemy/icicle2" method="_on_icicle2_body_entered"]
+[connection signal="body_entered" from="Enemy/icicle3" to="Enemy/icicle3" method="_on_icicle2_body_entered"]
+[connection signal="body_entered" from="ices/ice_8" to="ices/ice_8" method="_on_ice_body_entered"]
+[connection signal="body_entered" from="ices/ice_11" to="ices/ice_11" method="_on_ice_body_entered"]
+[connection signal="body_entered" from="ices/ice_12" to="ices/ice_12" method="_on_ice_body_entered"]
+[connection signal="body_entered" from="King_2" to="King_2" method="_on_King_2_body_entered"]
