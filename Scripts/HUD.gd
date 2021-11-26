@@ -19,3 +19,6 @@ func _on_Fire_2_lose_health():
 
 func _on_Fists_lose_health():
 	_ready()
+
+func _on_icicle2_lose_health():
+	_ready()
