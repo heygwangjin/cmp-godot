@@ -49,6 +49,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Goal" type="Label" parent="HUD"]
+margin_left = 144.0
+margin_top = -2.0
+margin_right = 300.0
+margin_bottom = 46.0
+custom_fonts/font = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Souls" type="Node2D" parent="."]
 
 [node name="soul" parent="Souls" instance=ExtResource( 3 )]
