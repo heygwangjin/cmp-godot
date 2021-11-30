@@ -50,3 +50,4 @@ func _on_Enemy_body_entered(body):
 	if body.name == "Player":
 		body.health -= 1
 		emit_signal("lose_health")
+		$PunchSound.play()

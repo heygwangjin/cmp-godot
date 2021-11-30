@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Scenes/icicle.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/Ice.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/King_2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sound/CollectSound.mp3" type="AudioStream" id=9]
+[ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -45,25 +47,28 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="CollectSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 9 )
+
 [node name="Souls" type="Node2D" parent="."]
 
 [node name="soul" parent="Souls" instance=ExtResource( 3 )]
 position = Vector2( 516, 312 )
 
 [node name="soul2" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 789, 239 )
+position = Vector2( 915, 219 )
 
 [node name="soul3" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1083, 93 )
+position = Vector2( 1433, -48 )
 
 [node name="soul4" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1432, 220 )
+position = Vector2( 1689, -200 )
 
 [node name="soul5" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 1917, 302 )
+position = Vector2( 2585, 128 )
 
 [node name="soul6" parent="Souls" instance=ExtResource( 3 )]
-position = Vector2( 2572, 143 )
+position = Vector2( 3546, 266 )
 
 [node name="Tiles" type="Node2D" parent="."]
 
@@ -72,27 +77,33 @@ position = Vector2( -3, -2 )
 tile_set = ExtResource( 2 )
 show_collision = true
 format = 1
-tile_data = PoolIntArray( 131072, 4, 0, 131119, 5, 0, 131120, 5, 0, 131121, 5, 0, 131122, 5, 0, 196624, 5, 0, 196625, 5, 0, 196626, 5, 0, 196627, 5, 0, 262176, 5, 0, 262177, 5, 0, 262178, 5, 0, 262179, 5, 0, 262186, 5, 0, 262187, 5, 0, 262188, 5, 0, 262189, 5, 0, 327691, 5, 0, 327692, 5, 0, 327693, 5, 0, 327694, 5, 0, 327701, 5, 0, 327702, 5, 0, 327703, 5, 0, 327704, 5, 0, 393216, 5, 0, 393217, 5, 0, 393218, 5, 0, 393219, 5, 0, 393220, 5, 0, 393221, 5, 0, 393222, 5, 0, 393223, 5, 0, 393224, 5, 0, 393243, 5, 0, 393244, 5, 0, 393245, 5, 0, 393246, 5, 0, 393253, 5, 0, 393254, 5, 0, 393255, 5, 0, 393256, 5, 0, 393268, 5, 0, 393269, 5, 0, 393270, 5, 0, 393271, 5, 0, 393274, 5, 0, 393275, 5, 0, 393276, 5, 0, 393277, 5, 0, 917541, 4, 0, 917542, 4, 0, 917543, 4, 0 )
+tile_data = PoolIntArray( -65512, 7, 0, -65511, 7, 0, -65510, 7, 0, 65556, 7, 0, 65557, 7, 0, 65558, 7, 0, 131072, 4, 0, 131117, 7, 0, 131118, 7, 0, 131119, 7, 0, 196624, 7, 0, 196625, 7, 0, 196626, 7, 0, 262178, 7, 0, 262181, 7, 0, 262184, 7, 0, 262187, 7, 0, 327691, 7, 0, 327692, 7, 0, 327693, 7, 0, 327694, 7, 0, 393216, 7, 0, 393217, 7, 0, 393218, 7, 0, 393219, 7, 0, 393220, 7, 0, 393221, 7, 0, 393222, 7, 0, 393223, 7, 0, 393224, 7, 0, 393245, 7, 0, 393246, 7, 0, 393247, 7, 0, 393248, 7, 0, 393265, 7, 0, 393266, 7, 0, 393267, 7, 0, 393268, 7, 0, 393271, 7, 0, 393274, 7, 0, 393275, 7, 0, 393276, 7, 0, 393277, 7, 0, 917541, 4, 0, 917542, 4, 0, 917543, 4, 0 )
 
 [node name="Enemy" type="Node2D" parent="."]
 
 [node name="icicle2" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 1149, 156 )
+position = Vector2( 764, 281 )
 
 [node name="icicle3" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 1468, 283 )
+position = Vector2( 1064, 153 )
 
 [node name="icicle4" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 1848, 352 )
+position = Vector2( 1312, 22 )
 
 [node name="icicle5" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 2173, 211 )
+position = Vector2( 1573, -104 )
 
 [node name="icicle6" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 2485, 343 )
+position = Vector2( 1943, 351 )
 
 [node name="icicle7" parent="Enemy" instance=ExtResource( 6 )]
-position = Vector2( 2808, 214 )
+position = Vector2( 3195, 345 )
+
+[node name="Enemy" parent="Enemy" instance=ExtResource( 10 )]
+position = Vector2( 1893, 180 )
+
+[node name="Enemy2" parent="Enemy" instance=ExtResource( 10 )]
+position = Vector2( 2918, 299 )
 
 [node name="ices" type="Node2D" parent="."]
 
@@ -126,6 +137,8 @@ position = Vector2( 3851, 220 )
 [connection signal="lose_health" from="Enemy/icicle6" to="HUD" method="_on_icicle2_lose_health"]
 [connection signal="body_entered" from="Enemy/icicle7" to="Enemy/icicle7" method="_on_icicle2_body_entered"]
 [connection signal="lose_health" from="Enemy/icicle7" to="HUD" method="_on_icicle2_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy" to="HUD" method="_on_Enemy_lose_health"]
+[connection signal="lose_health" from="Enemy/Enemy2" to="HUD" method="_on_Enemy_lose_health"]
 [connection signal="body_entered" from="ices/ice_8" to="ices/ice_8" method="_on_ice_body_entered"]
 [connection signal="body_entered" from="ices/ice_11" to="ices/ice_11" method="_on_ice_body_entered"]
 [connection signal="body_entered" from="ices/ice_12" to="ices/ice_12" method="_on_ice_body_entered"]

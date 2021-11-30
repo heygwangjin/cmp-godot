@@ -33,6 +33,7 @@ func get_input():
 		
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y -= JUMP_SPEED
+		$JumpSound.play()
 
 func _physics_process(delta):
 	get_input()
