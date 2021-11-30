@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Font/KOTRA HOPE_TTF.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/King.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sound/CollectSound.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Scripts/Fists.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Fire.tscn" type="PackedScene" id=10]
 
@@ -59,6 +60,9 @@ text = "Goal souls : 400"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="CollectSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 8 )
 
 [node name="Souls" type="Node2D" parent="."]
 

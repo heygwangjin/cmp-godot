@@ -9,6 +9,7 @@ func _ready():
 
 func _on_soul_soul_collected():
 	souls = souls + 100
+	$CollectSound.play()
 	_ready()
 	
 func _on_Enemy_lose_health():
