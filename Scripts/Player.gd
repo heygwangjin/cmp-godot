@@ -6,11 +6,12 @@ class_name Player
 
 signal lose_health 
 
-const WALK_SPEED = 300
-const JUMP_SPEED = 600
-const GRAVITY = 20
+var walk_speed = 300
+var jump_speed = 600
+var gravity = 20
 var velocity = Vector2()
-var health = 100
+var friction = 0.4
+var health = 3
 
 func is_dead() -> bool:
 	if (health <= 0):
@@ -21,18 +22,18 @@ func is_dead() -> bool:
 
 func get_input():
 	# Movements
-	velocity.y += GRAVITY
+	velocity.y += gravity
 	if Input.is_action_pressed("ui_right"):
-		velocity.x = WALK_SPEED
+		velocity.x = walk_speed
 		$Sprite.play("walk")
 	elif Input.is_action_pressed("ui_left"):
-		velocity.x = -WALK_SPEED
+		velocity.x = -walk_speed
 		$Sprite.play("walk")
 	else:
 		$Sprite.play("idle")
 		
 	if Input.is_action_pressed("jump") and is_on_floor():
-		velocity.y -= JUMP_SPEED
+		velocity.y -= jump_speed
 		$JumpSound.play()
 
 func _physics_process(delta):
@@ -41,6 +42,6 @@ func _physics_process(delta):
 		# Retry 화면 띄우기
 		queue_free()
 	
-	velocity.x = lerp(velocity.x, 0, 0.4) # smooth stop
+	velocity.x = lerp(velocity.x, 0, friction) # smooth stop
 	velocity = move_and_slide(velocity, Vector2.UP)
 
