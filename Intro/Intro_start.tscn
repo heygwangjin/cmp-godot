@@ -43,15 +43,45 @@ anims/FadeIn = SubResource( 1 )
 anims/FadeOut = SubResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 516, 304 )
-scale = Vector2( 3.38667, 2.88 )
+position = Vector2( 516, 204 )
+scale = Vector2( 2.16, 1.88 )
 texture = ExtResource( 2 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
-margin_left = -8.0
-margin_right = 1024.0
-margin_bottom = 608.0
+margin_top = -32.0
+margin_right = 1032.0
+margin_bottom = 576.0
 color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Control"]
+margin_left = 416.0
+margin_top = 336.0
+margin_right = 608.0
+margin_bottom = 408.0
+text = "START"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="Control"]
+margin_left = 416.0
+margin_top = 456.0
+margin_right = 608.0
+margin_bottom = 528.0
+text = "STORY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_Button2_pressed"]
