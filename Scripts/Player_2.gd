@@ -9,7 +9,7 @@ const JUMP_SPEED = 600
 const GRAVITY = 20
 var velocity = Vector2()
 const friction = 0.05
-var health = 100
+var health = 3
 
 func is_dead() -> bool:
 	if (health <= 0):
