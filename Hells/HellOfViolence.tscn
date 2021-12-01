@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Sound/CollectSound.mp3" type="AudioStream" id=8]
 [ext_resource path="res://Scripts/Fists.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Fire.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sound/PunchSound.mp3" type="AudioStream" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -63,6 +64,9 @@ __meta__ = {
 
 [node name="CollectSound" type="AudioStreamPlayer" parent="HUD"]
 stream = ExtResource( 8 )
+
+[node name="PunchSound" type="AudioStreamPlayer" parent="HUD"]
+stream = ExtResource( 11 )
 
 [node name="Souls" type="Node2D" parent="."]
 

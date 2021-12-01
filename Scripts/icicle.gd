@@ -42,17 +42,8 @@ func move_to (current, to, step):
 	return new
 
 
-
-
-
 func _on_icicle2_body_entered(body):
 	if body.name == "Player":
 		body.health -= 1
 		emit_signal("lose_health")
-
-
-func _on_icicle_body_entered(body):
-	if body.name == "Player":
-		body.health -= 1
-		emit_signal("lose_health")
-		
+		$IceSound.play()
