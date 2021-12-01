@@ -10,7 +10,7 @@
 [ext_resource path="res://Scenes/King_2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sound/CollectSound.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/Player_2.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/Sliding_player.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50

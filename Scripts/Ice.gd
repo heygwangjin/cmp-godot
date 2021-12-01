@@ -4,5 +4,5 @@ signal lose_health
 
 func _on_ice_body_entered(body):
 	if body.name == "Player":
-		body.health -= 3
+		body.health -= 5
 		emit_signal("lose_health")
