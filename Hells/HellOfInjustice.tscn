@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Tiles/tileset.res" type="TileSet" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/King_2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sound/CollectSound.mp3" type="AudioStream" id=9]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scripts/Player_2.gd" type="Script" id=11]
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -27,6 +28,7 @@ font_data = ExtResource( 5 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 311, 363 )
+script = ExtResource( 11 )
 
 [node name="Byunsung" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3851, 220 )

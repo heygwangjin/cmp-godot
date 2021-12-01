@@ -2,14 +2,13 @@
 
 extends KinematicBody2D
 
-class_name Player
-
 signal lose_health 
 
-const WALK_SPEED = 300
+const WALK_SPEED = 250
 const JUMP_SPEED = 600
 const GRAVITY = 20
 var velocity = Vector2()
+const friction = 0.05
 var health = 100
 
 func is_dead() -> bool:
@@ -41,6 +40,8 @@ func _physics_process(delta):
 		# Retry 화면 띄우기
 		queue_free()
 	
-	velocity.x = lerp(velocity.x, 0, 0.4) # smooth stop
+	if is_on_floor():
+		velocity.x = lerp(velocity.x, 0, friction) # sliding
+	
 	velocity = move_and_slide(velocity, Vector2.UP)
 
