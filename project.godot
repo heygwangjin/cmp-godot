@@ -9,13 +9,25 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "StaticBody2D",
+"class": "Byunsung",
+"language": "GDScript",
+"path": "res://Scripts/Byunsung.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
 "path": "res://Scripts/Player.gd"
+}, {
+"base": "Player",
+"class": "SlidngPlayer",
+"language": "GDScript",
+"path": "res://Scripts/SlidingPlayer.gd"
 } ]
 _global_script_class_icons={
-"Player": ""
+"Byunsung": "",
+"Player": "",
+"SlidngPlayer": ""
 }
 
 [application]
@@ -39,6 +51,11 @@ right={
 jump={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+shoot={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
  ]
 }
 

@@ -16,7 +16,3 @@ func _process(delta):
 	if($ProgressBar2.value - value <= 0.5):
 		$ProgressBar2.value = value
 		set_process(false)
-
-
-func _on_Button_pressed():
-	set_bar_value(value - 10)

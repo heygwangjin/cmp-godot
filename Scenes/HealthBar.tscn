@@ -17,8 +17,8 @@ bg_color = Color( 0.34902, 0.34902, 0.34902, 1 )
 [node name="HealthBar" type="CanvasLayer"]
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-margin_right = 104.0
-margin_bottom = 14.0
+margin_right = 156.0
+margin_bottom = 21.0
 custom_styles/fg = SubResource( 1 )
 custom_styles/bg = SubResource( 2 )
 value = 100.0
@@ -30,8 +30,8 @@ __meta__ = {
 
 [node name="ProgressBar2" type="ProgressBar" parent="ProgressBar"]
 show_behind_parent = true
-margin_right = 104.0
-margin_bottom = 14.0
+margin_right = 156.0
+margin_bottom = 21.0
 custom_styles/fg = SubResource( 3 )
 custom_styles/bg = SubResource( 4 )
 value = 100.0
