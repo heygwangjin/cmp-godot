@@ -10,8 +10,8 @@ onready var end_of_player = $EndOfPlayer
 
 func _ready():
 	walk_speed = 250
-	health = 100
-	friction = 0.02
+	health = 5
+	friction = 0.04
 
 func _unhandled_input(event) -> void:
 	if event.is_action_pressed("shoot"):

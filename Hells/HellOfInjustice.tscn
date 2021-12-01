@@ -43,10 +43,15 @@ font_data = ExtResource( 5 )
 [node name="Byunsung" parent="." instance=ExtResource( 8 )]
 position = Vector2( 3851, 220 )
 
-[node name="HealthBar" type="CanvasLayer" parent="Byunsung"]
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 311, 363 )
+script = ExtResource( 11 )
+Projectile = ExtResource( 12 )
+
+[node name="HealthBar" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
 
-[node name="ProgressBar" type="ProgressBar" parent="Byunsung/HealthBar"]
+[node name="ProgressBar" type="ProgressBar" parent="HealthBar"]
 margin_left = 3756.0
 margin_top = 27.0
 margin_right = 3912.0
@@ -60,7 +65,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ProgressBar2" type="ProgressBar" parent="Byunsung/HealthBar/ProgressBar"]
+[node name="ProgressBar2" type="ProgressBar" parent="HealthBar/ProgressBar"]
 show_behind_parent = true
 margin_right = 156.0
 margin_bottom = 21.0
@@ -72,14 +77,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Timer" type="Timer" parent="Byunsung/HealthBar/ProgressBar"]
+[node name="Timer" type="Timer" parent="HealthBar/ProgressBar"]
 wait_time = 0.2
 one_shot = true
-
-[node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 311, 363 )
-script = ExtResource( 11 )
-Projectile = ExtResource( 12 )
 
 [node name="HUD" type="CanvasLayer" parent="."]
 script = ExtResource( 4 )
@@ -184,7 +184,7 @@ position = Vector2( 2722, 537 )
 [node name="ice_12" parent="ices" instance=ExtResource( 7 )]
 position = Vector2( 1694, 539 )
 
-[connection signal="timeout" from="Byunsung/HealthBar/ProgressBar/Timer" to="Byunsung/HealthBar/ProgressBar" method="_on_Timer_timeout"]
+[connection signal="timeout" from="HealthBar/ProgressBar/Timer" to="HealthBar/ProgressBar" method="_on_Timer_timeout"]
 [connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul2" to="HUD" method="_on_soul_soul_collected"]
 [connection signal="soul_collected" from="Souls/soul3" to="HUD" method="_on_soul_soul_collected"]

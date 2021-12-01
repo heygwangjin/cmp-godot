@@ -15,3 +15,7 @@ func _physics_process(delta):
 	if(is_dead()):
 		# End Scene으로 넘어가기
 		queue_free()
+
+func set_health(damage):
+	health -= damage
+	$"../HealthBar/ProgressBar".set_bar_value(health)
