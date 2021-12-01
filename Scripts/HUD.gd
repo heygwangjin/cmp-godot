@@ -19,6 +19,7 @@ func _on_Fire_2_lose_health():
 	_ready()
 
 func _on_Fists_lose_health():
+	$PunchSound.play()
 	_ready()
 
 func _on_icicle2_lose_health():
