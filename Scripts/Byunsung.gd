@@ -12,10 +12,12 @@ func is_dead() -> bool:
 		return false
 
 func _physics_process(delta):
-	if(is_dead()):
-		# End Scene으로 넘어가기
-		queue_free()
+	if is_dead():
+		get_tree().change_scene("res://Scenes/EndScene.tscn")
 
 func set_health(damage):
-	health -= damage
-	$"../HealthBar/ProgressBar".set_bar_value(health)
+	self.health -= damage
+	$"../HealthBar/ProgressBar".set_bar_value(self.health)
+	
+	if self.health > 0:
+		$DamagedBossSound.play()

@@ -44,7 +44,7 @@ font_data = ExtResource( 5 )
 position = Vector2( 3851, 220 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-position = Vector2( 311, 363 )
+position = Vector2( 311, 165 )
 script = ExtResource( 11 )
 Projectile = ExtResource( 12 )
 
