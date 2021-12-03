@@ -64,9 +64,11 @@ __meta__ = {
 
 [node name="CollectSound" type="AudioStreamPlayer" parent="HUD"]
 stream = ExtResource( 8 )
+volume_db = -11.361
 
 [node name="PunchSound" type="AudioStreamPlayer" parent="HUD"]
 stream = ExtResource( 11 )
+volume_db = -23.596
 
 [node name="Souls" type="Node2D" parent="."]
 
