@@ -49,6 +49,11 @@ position = Vector2( 311, 165 )
 script = ExtResource( 11 )
 Projectile = ExtResource( 12 )
 
+[node name="ShootSound" type="AudioStreamPlayer2D" parent="Player"]
+position = Vector2( -311, -165 )
+stream = ExtResource( 14 )
+volume_db = 5.522
+
 [node name="HealthBar" type="CanvasLayer" parent="."]
 follow_viewport_enable = true
 
@@ -185,10 +190,6 @@ position = Vector2( 2722, 537 )
 
 [node name="ice_12" parent="ices" instance=ExtResource( 7 )]
 position = Vector2( 1694, 539 )
-
-[node name="ShootSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 14 )
-volume_db = 5.522
 
 [connection signal="timeout" from="HealthBar/ProgressBar/Timer" to="HealthBar/ProgressBar" method="_on_Timer_timeout"]
 [connection signal="soul_collected" from="Souls/soul" to="HUD" method="_on_soul_soul_collected"]

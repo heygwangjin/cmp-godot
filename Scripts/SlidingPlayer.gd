@@ -21,4 +21,4 @@ func shoot():
 	var projectile_instance = Projectile.instance()
 	get_parent().add_child(projectile_instance)
 	projectile_instance.global_position = end_of_player.global_position
-	$"../ShootSound".play()
+	$"ShootSound".play()
