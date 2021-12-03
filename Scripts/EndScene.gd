@@ -4,6 +4,7 @@ extends Node2D
 var end = false
 
 func _ready():
+	$KilledBossSound.play()
 	while(!end):
 		$AnimationPlayer.play("FadeIn")
 		yield(get_tree().create_timer(3),"timeout")

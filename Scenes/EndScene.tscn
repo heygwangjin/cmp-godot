@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/EndScene.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/win.png" type="Texture" id=2]
+[ext_resource path="res://Sound/KilledBossSound.mp3" type="AudioStream" id=3]
 
 [sub_resource type="Animation" id=1]
 resource_name = "FadeIn"
@@ -82,6 +83,10 @@ text = "QUIT"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="KilledBossSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 4.37
 
 [connection signal="pressed" from="Control/Retry" to="." method="_on_Retry_pressed"]
 [connection signal="pressed" from="Control/Quit" to="." method="_on_Quit_pressed"]

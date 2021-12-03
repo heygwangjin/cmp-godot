@@ -15,7 +15,6 @@ var health = 3
 
 func is_dead() -> bool:
 	if (health <= 0):
-		get_tree().reload_current_scene()
 		return true
 	else:
 		return false
@@ -39,8 +38,7 @@ func get_input():
 func _physics_process(delta):
 	get_input()
 	if(is_dead()):
-		# Retry 화면 띄우기
-		queue_free()
+		get_tree().reload_current_scene()
 	
 	velocity.x = lerp(velocity.x, 0, friction) # smooth stop
 	velocity = move_and_slide(velocity, Vector2.UP)

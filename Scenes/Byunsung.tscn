@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Sprites/Kings/byunsung.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Byunsung.gd" type="Script" id=2]
 [ext_resource path="res://Sound/DamagedBossSound.mp3" type="AudioStream" id=3]
-[ext_resource path="res://Sound/KilledBossSound.mp3" type="AudioStream" id=4]
 
 [node name="Byunsung" type="StaticBody2D"]
 rotation = -0.00599057
@@ -21,7 +20,3 @@ polygon = PoolVector2Array( -51.2143, -131.309, -28.1368, -144.171, -6.10729, -1
 [node name="DamagedBossSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = 21.849
-
-[node name="KilledBossSound" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
-volume_db = 6.992
