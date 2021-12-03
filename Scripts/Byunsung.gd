@@ -13,7 +13,10 @@ func is_dead() -> bool:
 
 func _physics_process(delta):
 	if is_dead():
-		get_tree().change_scene("res://Scenes/EndScene.tscn")
+		if $"../HUD".souls >= 500:
+			get_tree().change_scene("res://Scenes/EndScene.tscn")
+		else:
+			get_tree().reload_current_scene()
 
 func set_health(damage):
 	self.health -= damage
