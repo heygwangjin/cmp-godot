@@ -1,3 +1,4 @@
+# Created by Gwang Jin Kim
 extends StaticBody2D
 
 class_name Byunsung
@@ -14,6 +15,7 @@ onready var end_of_byunsung = $EndOfByunsung
 func _ready():
 	fireDelay = MaxFireDelay
 
+# Check for death
 func is_dead() -> bool:
 	if (health <= 0):
 		return true
@@ -33,6 +35,7 @@ func _physics_process(delta):
 	else:
 		fireDelay -= .5 * delta
 
+# Set health to new value
 func set_health(damage):
 	self.health -= damage
 	$"../HealthBar/ProgressBar".set_bar_value(self.health)
@@ -40,6 +43,7 @@ func set_health(damage):
 	if self.health > 0:
 		$DamagedBossSound.play()
 
+# Create fist dynamically
 func shoot():
 	var fist_king_instance = FistKing.instance()
 	get_parent().add_child(fist_king_instance)

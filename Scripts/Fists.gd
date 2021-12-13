@@ -22,5 +22,5 @@ func _process(delta):
 	# Create fists repeatedly
 	for i in range(num_fists):
 		if (!is_instance_valid(fists[i])):
-			fists.clear() # 구현하기 어려웠던 부분
+			fists.clear()
 			_ready()

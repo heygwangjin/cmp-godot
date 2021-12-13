@@ -4,7 +4,6 @@ extends KinematicBody2D
 
 class_name Player
 
-signal lose_health 
 
 var walk_speed = 300
 var jump_speed = 600
