@@ -42,4 +42,3 @@ func _physics_process(delta):
 	
 	velocity.x = lerp(velocity.x, 0, friction) # smooth stop
 	velocity = move_and_slide(velocity, Vector2.UP)
-

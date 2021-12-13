@@ -2,8 +2,17 @@ extends StaticBody2D
 
 class_name Byunsung
 
+export (PackedScene) var FistKing
+
 const min_souls = 500
+const MaxFireDelay = .25
 var health = 100
+var fireDelay
+
+onready var end_of_byunsung = $EndOfByunsung
+
+func _ready():
+	fireDelay = MaxFireDelay
 
 func is_dead() -> bool:
 	if (health <= 0):
@@ -17,6 +26,12 @@ func _physics_process(delta):
 			get_tree().change_scene("res://Scenes/EndScene.tscn")
 		else:
 			get_tree().reload_current_scene()
+	
+	# Create fist regularly
+	if fireDelay < 0:
+		shoot()
+	else:
+		fireDelay -= .5 * delta
 
 func set_health(damage):
 	self.health -= damage
@@ -24,3 +39,9 @@ func set_health(damage):
 	
 	if self.health > 0:
 		$DamagedBossSound.play()
+
+func shoot():
+	var fist_king_instance = FistKing.instance()
+	get_parent().add_child(fist_king_instance)
+	fist_king_instance.global_position = end_of_byunsung.global_position
+	fireDelay = MaxFireDelay

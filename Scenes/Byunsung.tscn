@@ -20,3 +20,6 @@ polygon = PoolVector2Array( -51.2143, -131.309, -28.1368, -144.171, -6.10729, -1
 [node name="DamagedBossSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 3 )
 volume_db = 21.849
+
+[node name="EndOfByunsung" type="Position2D" parent="."]
+position = Vector2( -153.159, 26.083 )
