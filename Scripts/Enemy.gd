@@ -14,10 +14,10 @@ func _ready():
 
 func _physics_process (delta):
 	
-	# move to the "targetX" position
+	# Move to the "targetX" position
 	position.x = move_to(position.x, targetX, speed * delta)
  
-	# if we're at our target, move in the other direction
+	# If we're at our target, move in the other direction
 	if position.x == targetX:
 		if targetX == startX:
 			targetX = position.x + moveDist
@@ -25,18 +25,18 @@ func _physics_process (delta):
 			targetX = startX
 
 
-# moves "current" towards "to" in an increment of "step"
+# Moves "current" towards "to" in an increment of "step"
 func move_to (current, to, step):
  
 	var new = current
  
-	# are we moving positive?
+	# Are we moving positive?
 	if new < to:
 		new += step
  
 		if new > to:
 			new = to
-	# are we moving negative?
+	# Are we moving negative?
 	else:
 		new -= step
  
@@ -45,7 +45,7 @@ func move_to (current, to, step):
  
 	return new
 
-
+# When a player touches it, the player's health is reduced by one
 func _on_Enemy_body_entered(body):
 	if body.name == "Player":
 		body.health -= 1
