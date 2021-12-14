@@ -1,6 +1,6 @@
 extends Node2D
 
-
+# the screen gradually brightens on a dark screen
 func _ready():
 	$AnimationPlayer.play("FadeIn")
 	yield(get_tree().create_timer(4),"timeout")
