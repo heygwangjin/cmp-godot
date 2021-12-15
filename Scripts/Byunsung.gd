@@ -49,3 +49,8 @@ func shoot():
 	get_parent().add_child(fist_king_instance)
 	fist_king_instance.global_position = end_of_byunsung.global_position
 	fireDelay = MaxFireDelay
+
+func _unhandled_input(event):
+	# Make you go to the next scene by prssing key 'c'
+	if Input.is_action_pressed("cheatKey"):
+		get_tree().change_scene("res://Scenes/EndScene.tscn")
